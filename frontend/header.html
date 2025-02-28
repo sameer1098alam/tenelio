@@ -1,0 +1,26 @@
+<header>
+    <div class="nav-container">
+        <h2>Document Scanner</h2>
+        <nav>
+            <a href="index.html" class="btn">Home</a>
+            <a href="login.html" id="login-signup" class="btn">Login/Signup</a>
+            <a href="profile.html" id="profile-link" class="btn">Profile</a>
+            <a href="about.html" class="btn">About Us</a>
+        </nav>
+    </div>
+</header>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loginSignupBtn = document.getElementById("login-signup");
+        const profileLink = document.getElementById("profile-link");
+
+        // Check if user is logged in
+        if (localStorage.getItem("username")) {
+            loginSignupBtn.style.display = "none"; // Hide login/signup if logged in
+            profileLink.style.display = "inline"; // Show profile link
+        } else {
+            profileLink.style.display = "none"; // Hide profile if not logged in
+        }
+    });
+</script>

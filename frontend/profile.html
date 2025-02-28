@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Include Header -->
+    <div id="header-container"></div>
+    <script>
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("header-container").innerHTML = data);
+    </script>
+
+    <div class="dashboard-container">
+        <!-- 📌 Sidebar Navigation -->
+        <nav class="dashboard-sidebar">
+            <h2>User Panel</h2>
+            <ul>
+                <!-- <li><a href="javascript:void(0);" onclick="showHome()" id="home-link">🏠 Home</a></li> -->
+                <li><a href="javascript:void(0);" onclick="showUpload()">📤 Upload Document</a></li>
+                <li><a href="javascript:void(0);" onclick="showPreviousScans()">📑 Previous Scans</a></li>
+                <li><a href="javascript:void(0);" onclick="showRequests()">🛎️ Requests</a></li>
+            </ul>
+        </nav>
+        
+
+        <!-- 📌 Main Content Area -->
+        <div class="dashboard-content">
+            <!-- Profile Overview -->
+            <div class="profile-overview">
+                <h2 id="profile-username">Hi, User</h2>
+                <p>Remaining Credits: <span id="user-credits">0</span></p>
+                <button id="logout-btn" class="logout-button">Logout</button>
+            </div>
+
+            <!-- 📌 Dashboard Overview -->
+            <div class="dashboard-overview">
+                <h2>Dashboard Overview</h2>
+                <div class="dashboard-stats">
+                    <div class="stat-box">
+                        <h3>Total Uploads</h3>
+                        <p id="total-uploads">0</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Recent Matches</h3>
+                        <p id="recent-matches">N/A</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Credits Used</h3>
+                        <p id="credits-used">0</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Pending Requests</h3>
+                        <p id="pending-requests">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 📌 Content Area for Sections -->
+            <div id="content-area">
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Scanner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Include Header -->
+    <div id="header-container"></div>
+    <script>
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("header-container").innerHTML = data);
+    </script>
+
+    <!-- Background -->
+    <div class="background-container">
+        <div class="overlay"></div>
+        <div class="container">
+            <h1>Welcome to Document Scanner</h1>
+            <p>Your AI-powered document scanning system.</p>
+            <!-- <a href="login.html" class="btn">Login / Sign Up</a> Removed popup -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

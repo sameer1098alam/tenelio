@@ -1,0 +1,343 @@
+\documentclass[a4paper,10pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{multirow}
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+\usepackage[unicode, draft=false]{hyperref}
+\usepackage{fontawesome5}
+
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+% Define a softer shade of blue
+\definecolor{softblue}{RGB}{100, 150, 200}
+
+% Define normal-sized bold section headings
+\titleformat{\section}
+  {\Large\scshape\raggedright} % Set section headings to large
+  {} % Empty for section number
+  {0em} % Space between section number and title
+  {} % Format before section title
+  [\titlerule] % Add horizontal line after section title
+
+\titlespacing{\section}
+  {0pt} % Left margin
+  {8pt} % Space before heading
+  {8pt} % Space after heading
+
+% Define normal-sized bold subsection headings
+\titleformat{\subsection}
+  {\normalsize\bfseries} % Set subsection headings to normal size and bold
+  {} % Empty for subsection number
+  {0em} % Space between subsection number and title
+  {} % Format before subsection title
+
+\titlespacing{\subsection}
+  {0pt} % Left margin
+  {6pt} % Space before heading
+  {6pt} % Space after heading
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=softblue,
+  linkcolor=softblue,
+  citecolor=softblue
+}
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\Huge{\textbf{Fazal Shaik}} \\[5pt]
+\\
+\href{https://github.com/fazalshai}{\textbf{\large \textcolor{softblue}{Github}}} \ $|$ \ 
+\href{https://www.linkedin.com/in/fazalsha/}{\textbf{\large \textcolor{softblue}{Linkedin}}} \ $|$ \ 
+\href{mailto:fazal_shaik@srmap.edu.in}{\textbf{\large \textcolor{softblue}{fazal\_shaik@srmap.edu.in}}} \ $|$ \ 
+\href{tel:+919705681005}{\textbf{\large \textcolor{softblue}{+91 9705681005}}} \\[10pt]
+\end{tabularx}
+
+\section{Professional Summary} 
+B-Tech student in AI-ML and IoT at SRM University with strong technical skills and a passion for innovative problem-solving. Seeking opportunities to leverage my knowledge in AI and IoT technologies to contribute to organizational growth and personal development.
+
+\section{Projects}
+
+\subsection{Attendance Auto-Capture System (Patent Filed)}
+\begin{itemize}
+    \item Developed an automated attendance system using Convolutional Neural Networks (CNN) and k-means clustering.
+    \item Enhanced accuracy and efficiency in attendance management through machine learning techniques.
+\end{itemize}
+
+\subsection{Traffic Detection and Management with YOLO}
+\begin{itemize}
+    \item Created a traffic management system using YOLO algorithms and IoT devices.
+    \item Improved traffic flow with a 91\% accuracy rate in optimization.
+\end{itemize}
+
+\subsection{Global File-Access Website: “Anyhomework.co”}
+\begin{itemize}
+    \item Designed and deployed a .NET-based website managing over 1.25 million events with 221,000 views.
+\end{itemize}
+
+\subsection{Cybersecurity Learning Platform: “Hackkaro.com”}
+\begin{itemize}
+    \item Built a .NET and MySQL-based platform providing cybersecurity resources for beginners.
+\end{itemize}
+
+\subsection{COVID-19 Support Website: “thesulthan.com”}
+\begin{itemize}
+    \item Developed a website to support retail shops during the pandemic, addressing operational and customer engagement challenges.
+\end{itemize}
+
+\section{Professional Experience}
+
+\textbf{Data Analyst Intern} \hfill \textit{August 2023 - December 2023} \\
+Movidu
+\begin{itemize}
+    \item Analyzed weather data to improve system accuracy and reporting.
+    \item Utilized advanced analytics tools to enhance data management and reporting.
+\end{itemize}
+
+\section{Education}
+
+\textbf{Bachelor of Technology in Computer Science and Engineering} \hfill \textit{8.47 CGPA} \\
+SRM University AP
+
+\textbf{High School} \hfill \textit{912/1000} \\
+Bhashyam Junior College, Guntur, Andhra Pradesh
+
+\textbf{Secondary School} \hfill \textit{9.3 GPA} \\
+Sri Chaitanya Techno School, Guntur, Andhra Pradesh
+
+\section{Research}
+
+\textbf{Attendance Monitoring Using ML}
+\begin{itemize}
+    \item Developed a CNN-based attendance system integrated with IoT devices.
+    \item Achieved high accuracy in real-time attendance tracking.
+\end{itemize}
+
+\textbf{Traffic Management Using ML}
+\begin{itemize}
+    \item Implemented a real-time traffic control system using YOLO for vehicle detection.
+    \item Integrated with IoT devices to optimize traffic management.
+\end{itemize}
+
+\section{Skills}
+
+\begin{itemize}
+    \item \textbf{Languages:} C, C++, Java, Python, HTML, CSS, JavaScript
+    \item \textbf{Databases:} MySQL, MSSQL, MongoDB
+    \item \textbf{Tools \& Technologies:} React, NodeJS, Git, Jupyter Notebook
+    \item \textbf{Hardware:} Jetson Nano, Raspberry Pi, Arduino, LoRa Devices
+\end{itemize}
+
+\section{Achievements}
+
+\begin{itemize}
+    \item Patent Filed for Attendance Monitoring System (2024)
+    \item Gold Medal in Traffic Management Research (April 2024)
+    \item Gold Medal in SyncHome-AI-Bot Research (April 2024)
+\end{itemize}
+
+\end{document}
+----------------------------------------------------------------------
+2nd one
+\documentclass[a4paper,10pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{supertabular}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+\usepackage[unicode, draft=false]{hyperref}
+\usepackage{fontawesome5}
+
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+% Define a softer shade of blue
+\definecolor{softblue}{RGB}{100, 150, 200}
+
+% Define normal-sized bold section headings
+\titleformat{\section}
+  {\Large\scshape\raggedright} % Set section headings to large
+  {} % Empty for section number
+  {0em} % Space between section number and title
+  {} % Format before section title
+  [\titlerule] % Add horizontal line after section title
+
+\titlespacing{\section}
+  {0pt} % Left margin
+  {8pt} % Space before heading
+  {8pt} % Space after heading
+
+% Define normal-sized bold subsection headings
+\titleformat{\subsection}
+  {\normalsize\bfseries} % Set subsection headings to normal size and bold
+  {} % Empty for subsection number
+  {0em} % Space between subsection number and title
+  {} % Format before subsection title
+
+\titlespacing{\subsection}
+  {0pt} % Left margin
+  {6pt} % Space before heading
+  {6pt} % Space after heading
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=softblue,
+  linkcolor=softblue,
+  citecolor=softblue
+}
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\Huge{\textbf{Fazal Shaik}} \\[5pt]
+\\
+\href{https://github.com/fazalshai}{\textbf{\large \textcolor{softblue}{Github}}} \ $|$ \ 
+\href{https://www.linkedin.com/in/fazalsha/}{\textbf{\large \textcolor{softblue}{Linkedin}}} \ $|$ \ 
+\href{mailto:fazal_shaik@srmap.edu.in}{\textbf{\large \textcolor{softblue}{fazal\_shaik@srmap.edu.in}}} \ $|$ \ 
+\href{tel:+919705681005}{\textbf{\large \textcolor{softblue}{+91 9705681005}}} \\[10pt]
+\end{tabularx}
+
+\section{Summary} 
+Enthusiastic B-Tech student in AI-ML and IoT at SRM University, eager to join a creative and innovative workplace where I can contribute my energy and technical skills. Passionate about exploring my potential while aiding the organization’s growth through continuous learning and innovative problem-solving.
+
+\section{Projects (ML \& Web)}
+
+\subsection{Attendance autocapture using CNN \& k-means clustering algorithm (Patent Filed)}
+\normalsize
+\begin{itemize}
+    \item Designed an automated attendance system using CNN and k-means clustering to capture and manage attendance data. The system leverages ML for increased accuracy and efficient data handling.
+\end{itemize}
+
+\subsection{Traffic detection and management using YOLO algorithms}
+\normalsize
+\begin{itemize}
+    \item Developed a comprehensive traffic management system using YOLO algorithms combined with IoT devices. This system improves traffic flow and monitoring, achieving 91\% accuracy in traffic optimization.
+\end{itemize}
+
+\subsection{Deployed website “Anyhomework.co”}
+\normalsize
+\begin{itemize}
+    \item Created a global file-access website with .NET and MSSQL, managing over 1.25 million events and 221,000 views in two months.
+\end{itemize}
+
+\subsection{Deployed website “Hackkaro.com”}
+\normalsize
+\begin{itemize}
+    \item Built a cybersecurity learning platform for beginners using .NET and MySQL, providing educational resources and interactive content.
+\end{itemize}
+
+\subsection{Deployed website “thesulthan.com”}
+\normalsize
+\begin{itemize}
+    \item Created a website aimed at providing social service during the COVID-19 pandemic. The platform offered support and resources for retail shops, including assistance with operational challenges and customer engagement during the crisis.
+\end{itemize}
+
+\section{Experience / Internship}
+
+\begin{tabularx}{\linewidth}{@{}l r@{}}
+\textbf{Data Analyst Intern at Movidu} \hspace{10em} \textit{August 2023 - December 2023}
+\end{tabularx}
+\normalsize
+\begin{itemize}
+    \item Analyzed and processed weather data from various states to ensure accurate and timely updates in the system.
+    \item Utilized advanced data analytics tools and techniques to improve data accuracy, enhance reporting mechanisms, and streamline data management.
+    \item Created detailed reports and visualizations to present findings and insights, aiding in decision-making processes and operational efficiency.
+\end{itemize}
+
+\section{Education}
+
+\begin{tabularx}{\linewidth}{@{}l r@{}}
+\textbf{SRM University AP}  \hspace{15em} \textit{                8.47 CGPA} 
+\end{tabularx}
+Bachelor of Technology in Computer Science and Engineering
+
+\begin{tabularx}{\linewidth}{@{}l r@{}}
+\textbf{Bhashyam Junior College}  \hspace{12em} \textit{912/1000} 
+\end{tabularx}
+High school, Guntur, Andhra Pradesh
+
+\begin{tabularx}{\linewidth}{@{}l r@{}}
+\textbf{Sri Chaitanya Techno School}  \hspace{10em} \textit{9.3 GPA} 
+\end{tabularx}
+Guntur, Andhra Pradesh
+
+\section{Research}
+
+\textbf{Attendance Monitoring Using ML}
+\normalsize
+\begin{itemize}
+    \item Developed a CNN-based attendance system integrated with IoT devices like Raspberry Pi and Arduino.
+    \item Enhanced system efficiency by combining CNN with real-time data processing, achieving high accuracy in attendance tracking.
+\end{itemize}
+
+\textbf{Traffic Management Using ML}
+\normalsize
+\begin{itemize}
+    \item Designed and implemented a real-time traffic control system using YOLO algorithms for vehicle detection and classification.
+    \item Integrated with real-time data sources and IoT devices to optimize traffic flow, achieving significant improvements in traffic management efficiency.
+\end{itemize}
+
+\section{Skills}
+
+\normalsize
+\begin{itemize}
+    \item \textbf{Languages:} C, C++, Data Structures, Java, Python, HTML, CSS, JavaScript
+    \item \textbf{Databases:} MySQL, Mssql, MongoDB, 
+    \item \textbf{Tools \& Technologies:}  React, NodeJS, GIT, Jupyter Notebook
+    \item \textbf{Hardware:} Jetson nano developer kit, Raspberry Pi, Arduino, LoRa devices
+\end{itemize}
+
+\section{Achievements}
+
+\begin{itemize}
+    \item Patent Filed for Attendance Monitoring System (2024)
+    \item Gold medal for research project Traffic Management and Maintenance (April 2024)
+    \item Gold medal for research project SyncHome-AI-Bot Empowering User Recognition, Interaction, and Task Execution using YOLO algorithms (April 2024)
+\end{itemize}
+
+\end{document}

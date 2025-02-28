@@ -1,0 +1,1020 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* 📌 Background */
+.background-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: url('background.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* 📌 Header */
+header {
+    background-color: black;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    background: black;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background-color: gray;
+}
+
+/* 📌 Popup (Login/Register) */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 3rem;
+    border-radius: 10px;
+    width: 500px;
+    max-width: 95%;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 📌 Close Button (X) */
+.popup .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 22px;
+    color: gray;
+    background: none;
+    border: none;
+}
+
+.popup .close-btn:hover {
+    color: black;
+}
+
+/* 📌 Form Elements */
+.popup h2 {
+    margin-bottom: 15px;
+    font-size: 26px;
+}
+
+.popup input {
+    width: 90%;
+    padding: 14px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.popup button {
+    width: 90%;
+    padding: 14px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.popup button:hover {
+    background-color: gray;
+}
+
+/* 📌 Profile Section */
+.profile-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    max-width: 90%;
+    margin: auto;
+    margin-top: 80px;
+}
+
+/* 📌 Username Styling */
+.profile-container h2 {
+    font-size: 22px;
+    color: black;
+    margin: 0;
+}
+
+/* 📌 Logout Button */
+.logout-button {
+    padding: 12px 18px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: gray;
+}
+
+/* 📌 Responsive Design */
+@media screen and (max-width: 600px) {
+    .popup {
+        width: 90%;
+        padding: 2rem;
+    }
+
+    .popup input {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .popup button {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .profile-container {
+        width: 90%;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logout-button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+/* 📌 Profile Message */                                     
+.profile-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+/* 📌 Auth Container */
+.auth-container {
+    max-width: 450px;
+    margin: 80px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 📌 Tabs */
+.auth-tabs {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    border-bottom: 3px solid black;
+    font-weight: bold;
+}
+
+/* 📌 Auth Box */
+.auth-box {
+    padding: 20px;
+}
+
+/* 📌 Form */
+.auth-box h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.auth-box p {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 15px;
+}
+
+.auth-box label {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* 📌 Password Container */
+.password-container {
+    position: relative;
+}
+
+.password-container .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    cursor: pointer;
+}
+
+/* 📌 Buttons */
+.auth-box button {
+    width: 100%;
+    padding: 12px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.auth-box button:hover {
+    background-color: gray;
+}
+
+/* 📌 Responsive */
+@media screen and (max-width: 500px) {
+    .auth-container {
+        width: 90%;
+    }
+
+    .tab-btn {
+        font-size: 14px;
+    }
+
+    .auth-box input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .auth-box button {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+/* 📌 Admin Page Layout */
+.admin-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* 📌 Sidebar */
+.admin-sidebar {
+    width: 250px;
+    background: #1a1a1a;
+    color: white;
+    padding: 20px;
+    height: 100%;
+    position: fixed;
+}
+
+.admin-sidebar h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.admin-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.admin-sidebar ul li {
+    margin: 15px 0;
+}
+
+.admin-sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.admin-sidebar ul li a:hover {
+    background: #333;
+}
+
+/* 📌 Main Content */
+.admin-content {
+    margin-left: 270px;
+    padding: 20px;
+    flex-grow: 1;
+    background: #f4f4f4;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.admin-content h2 {
+    margin-bottom: 20px;
+}
+/* 📌 User Dashboard Layout */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* 📌 Sidebar */
+/* 📌 Sidebar */
+.dashboard-sidebar {
+    width: 250px;
+    background: #1a1a1a;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    top: 60px; /* ✅ Aligns with header */
+    left: 0;
+    margin-top: 0; /* ✅ Removes extra space */
+}
+
+
+.dashboard-sidebar h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.dashboard-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard-sidebar ul li {
+    margin: 15px 0;
+}
+
+.dashboard-sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.dashboard-sidebar ul li a:hover {
+    background: #333;
+}
+
+/* 📌 Main Content */
+/* 📌 Dashboard Content */
+/* 📌 Dashboard Content */
+.dashboard-content {
+    margin-left: 250px; /* ✅ Pushes next to sidebar */
+    padding: 20px;
+    flex-grow: 1;
+    background: #f4f4f4;
+    height: 100vh;
+    overflow-y: auto;
+    margin-top: 60px; /* ✅ Ensures it's directly below the header */
+}
+
+
+
+.dashboard-content h2 {
+    margin-bottom: 20px;
+}
+
+/* 📌 Upload Document Section */
+.upload-container, .previous-scans-container, .request-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin-top: 20px;
+}
+
+/* 📌 Logout Button */
+.logout-button {
+    padding: 12px 18px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.logout-button:hover {
+    background-color: gray;
+}
+/* 📌 General Dashboard Layout */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* 📌 Sidebar */
+.dashboard-sidebar {
+    width: 250px;
+    background: #1a1a1a;
+    color: white;
+    padding: 20px;
+    height: 100%;
+    position:fixed;
+    margin-top: 70px; 
+}
+
+.dashboard-sidebar h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.dashboard-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard-sidebar ul li {
+    margin: 15px 0;
+}
+
+.dashboard-sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.dashboard-sidebar ul li a:hover {
+    background: #333;
+}
+
+/* 📌 Dashboard Content */
+.dashboard-content {
+    margin-left: 270px;
+    padding: 20px;
+    flex-grow: 1;
+    background: #f4f4f4;
+    height: 100vh;
+    overflow-y: auto;
+    margin-top: 80px; 
+}
+
+.profile-overview {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 0; /* ✅ Remove extra space at the top */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* 📌 Dashboard Overview */
+.dashboard-overview {
+    margin-bottom: 20px;
+}
+
+.dashboard-stats {
+    display: flex;
+    gap: 15px;
+}
+
+.stat-box {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.stat-box h3 {
+    font-size: 18px;
+    color: black;
+    margin-bottom: 10px;
+}
+
+/* 📌 Logout Button */
+.logout-button {
+    padding: 10px 15px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: gray;
+}
+
+/* 📌 Responsive Design */
+@media screen and (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .dashboard-sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .dashboard-content {
+        margin-left: 0;
+    }
+
+    .dashboard-stats {
+        flex-direction: column;
+    }
+}
+.profile-overview {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 80px; /* ✅ Pushes it below the header */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* 📌 Header */
+header {
+    background-color: black;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    background: black;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background-color: gray;
+}
+
+/* 📌 User Dashboard Layout */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    margin-top: 0px; /* ✅ Pushes everything below the header */
+}
+
+/* 📌 Sidebar */
+.dashboard-sidebar {
+    width: 250px;
+    background: #1a1a1a;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    top:10px; /* ✅ Aligns with header */
+    left: 0;
+    overflow-y: auto;
+    border-radius: 5px;
+}
+
+.dashboard-sidebar h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.dashboard-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard-sidebar ul li {
+    margin: 15px 0;
+}
+
+.dashboard-sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+    transition: background 0.3s;
+}
+
+.dashboard-sidebar ul li a:hover {
+    background: #333;
+}
+
+/* 📌 Dashboard Content */
+.dashboard-content {
+    margin-left: 250px; /* ✅ Pushes next to sidebar */
+    padding: 20px;
+    flex-grow: 1;
+    background: #f4f4f4;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* 📌 Profile Overview */
+.profile-overview {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 📌 Dashboard Overview */
+.dashboard-overview {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-stats {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+}
+
+/* 📌 Logout Button */
+.logout-button {
+    padding: 10px 15px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: gray;
+}
+
+/* 📌 Responsive Design */
+@media screen and (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .dashboard-sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .dashboard-content {
+        margin-left: 0;
+    }
+
+    .dashboard-stats {
+        flex-direction: column;
+    }
+}
+
+.upload-result {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin-top: 20px;
+}
+
+.upload-result h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.upload-result p {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.upload-result a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.upload-result a:hover {
+    background-color: gray;
+}
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+    background-color: black;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    background: black;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background-color: gray;
+}
+
+/* Dashboard Layout */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    margin-top: 60px;
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+    width: 250px;
+    background: #1a1a1a;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    overflow-y: auto;
+    border-radius: 5px;
+}
+
+.dashboard-sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.dashboard-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard-sidebar ul li {
+    margin: 15px 0;
+}
+
+.dashboard-sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 12px;
+    border-radius: 5px;
+    text-align: left;
+    transition: background 0.3s;
+}
+
+.dashboard-sidebar ul li a:hover {
+    background: #333;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+    margin-left: 270px;
+    padding: 20px;
+    flex-grow: 1;
+    background: #f4f4f4;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+/* Profile Overview */
+.profile-overview {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Styling */
+.section {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background: black;
+    color: white;
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.approve-btn {
+    background: green;
+    color: white;
+}
+
+.reject-btn {
+    background: red;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.logout-button {
+    padding: 10px 15px;
+    background-color: black;
+    color: white;
+}
+
+.logout-button:hover {
+    background-color: gray;
+}

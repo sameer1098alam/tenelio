@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="header-container"></div>
+    <script>
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("header-container").innerHTML = data);
+    </script>
+
+    <div class="dashboard-container">
+
+        <!-- Sidebar Navigation (Matching User Profile) -->
+        <nav class="dashboard-sidebar">
+            <h2>Admin Panel</h2>
+            <ul>
+                <li><a href="javascript:void(0);" onclick="showUsers()">👥 All Users & Credits</a></li>
+                <li><a href="javascript:void(0);" onclick="showCreditRequests()">💳 Approve Credit Requests</a></li>
+                <li><a href="javascript:void(0);" onclick="showRequestHistory()">📜 Credit Request History</a></li>
+                <li><a href="javascript:void(0);" onclick="showDocumentStats()">📊 Most Scanned Documents</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="dashboard-content">
+            <div class="profile-overview">
+                <h2>Welcome, Admin</h2>
+                <button id="logout-btn" class="logout-button">Logout</button>
+            </div>
+
+            <div id="content-area">
+                <p>Select an option from the menu.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
