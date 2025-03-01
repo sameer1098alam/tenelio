@@ -1,20 +1,25 @@
-AI-Powered Document Scanner
-This is a Credit-Based AI Document Scanning System that allows users to scan documents, analyze them, and request additional credits when needed.
 
-🔥 Features
-✅ User Authentication (Register/Login, Role Management: User/Admin)
-✅ Credit System (20 free scans/day, Admin approval for extra credits)
-✅ Document Upload & AI Analysis (Summarization & Topic Extraction using Google Gemini AI)
-✅ Basic Document Matching (Text similarity check)
-✅ Admin Dashboard (Manage users, approve credits, view analytics)
-✅ Auto Credit Reset (Resets to 20 credits daily at midnight)
-✅ SQLite Database (Stores users, documents, and credit requests)
-🏆 Admin Login Credentials
-To log in as an Admin, use the following credentials:
+**AI-Enabled Document Scanner
+Project Overview
+The AI-Enabled Document Scanner is a smart scanning solution that processes and enhances document images using AI-based techniques. It allows users to scan, preprocess, and extract useful information from documents efficiently.
 
-Admin Username: admin
-Admin Password: admin
+Steps to Solution
+Project Setup:
 
-![image](https://github.com/user-attachments/assets/f838d1e4-a730-4659-a4ab-e2a1d9861725)
+Initialize a Git repository.
+Create a Python-based environment with OpenCV and other required libraries.
+Image Acquisition & Preprocessing:
 
-Dashboard with summary of file uploaded and below video shows 
+Capture or upload document images.
+Apply grayscale conversion, noise reduction, and edge detection.
+Document Detection & Transformation:
+
+Use contour detection and perspective transformation to extract the document area.
+Text Extraction & Enhancement:
+
+Apply OCR (Tesseract) for text recognition.
+Improve clarity using thresholding techniques.
+Output & Storage:
+
+Save processed documents as images or PDFs.
+Provide options for exporting and sharing.**
