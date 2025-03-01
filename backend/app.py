@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_from_directory, session, g
+from flask import Flask, request, jsonify, session, g
 import os
 import sqlite3
 import hashlib
@@ -8,6 +8,7 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 from threading import Timer
 
+# Load environment variables
 load_dotenv()
 
 app = Flask(__name__)
@@ -15,17 +16,20 @@ app.secret_key = os.getenv("FLASK_SECRET_KEY", "change_this_key")
 
 CORS(app, resources={r"/*": {"origins": "*"}})
 
+# Configure Gemini AI API
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
     raise ValueError("ERROR: GEMINI_API_KEY is not set!")
 
 genai.configure(api_key=GEMINI_API_KEY)
 
+# Upload settings
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 ALLOWED_EXTENSIONS = {"txt"}
 
+# Database connection
 def get_db():
     if "db" not in g:
         g.db = sqlite3.connect("database.db")
@@ -65,7 +69,6 @@ def create_tables():
                 summary TEXT,
                 topics TEXT,
                 word_count INTEGER,
-                match_percentage INTEGER,
                 created_at TEXT DEFAULT CURRENT_TIMESTAMP
             )
         """)
@@ -126,18 +129,17 @@ def register():
     if not username or not password:
         return jsonify({"message": "Username and password required"}), 400
 
-    with app.app_context():
-        conn = get_db()
-        cursor = conn.cursor()
-        cursor.execute("SELECT * FROM users WHERE username=?", (username,))
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM users WHERE username=?", (username,))
 
-        if cursor.fetchone():
-            return jsonify({"message": "User already exists"}), 409
+    if cursor.fetchone():
+        return jsonify({"message": "User already exists"}), 409
 
-        cursor.execute("INSERT INTO users (username, password, last_reset) VALUES (?, ?, ?)", 
+    cursor.execute("INSERT INTO users (username, password, last_reset) VALUES (?, ?, ?)", 
                     (username, hash_password(password), datetime.now().strftime('%Y-%m-%d')))
-        conn.commit()
-        conn.close()
+    conn.commit()
+    conn.close()
 
     return jsonify({"message": "User registered successfully"}), 201
 
@@ -158,69 +160,37 @@ def login():
     session["user_id"] = user["id"]
     return jsonify({"message": "Login successful", "role": user["role"], "credits": user["credits"]}), 200
 
-@app.route("/upload", methods=["POST"])
-def upload_file():
-    if "file" not in request.files:
-        return jsonify({"message": "No file uploaded"}), 400
-
-    file = request.files["file"]
-    username = request.form.get("username", "").strip().lower()
-
-    if file.filename == "":
-        return jsonify({"message": "No selected file"}), 400
-
+@app.route("/auth/profile", methods=["GET"])
+def get_profile():
+    username = request.args.get("username", "").strip().lower()
     conn = get_db()
     cursor = conn.cursor()
-    cursor.execute("SELECT id, credits FROM users WHERE username=?", (username,))
+    cursor.execute("SELECT username, credits, role FROM users WHERE username=?", (username,))
     user = cursor.fetchone()
 
     if not user:
         return jsonify({"message": "User not found"}), 404
 
-    user_id, credits = user
-    if credits <= 0:
-        return jsonify({"message": "Insufficient credits"}), 400
+    return jsonify({"username": user["username"], "credits": user["credits"], "role": user["role"]})
 
-    file_path = os.path.join(UPLOAD_FOLDER, file.filename)
-    file.save(file_path)
+@app.route("/credits/request", methods=["POST"])
+def request_credits():
+    username = request.json.get("username", "").strip().lower()
 
-    with open(file_path, "r", encoding="utf-8") as f:
-        text = f.read()
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT id FROM users WHERE username=?", (username,))
+    user = cursor.fetchone()
 
-    analysis_result = analyze_document(text)
-    if "error" in analysis_result:
-        return jsonify({"message": "Error processing document", "error": analysis_result["error"]}), 500
+    if not user:
+        return jsonify({"message": "User not found"}), 404
 
-    cursor.execute("UPDATE users SET credits = credits - 1 WHERE id = ?", (user_id,))
-    cursor.execute("""
-        INSERT INTO documents (user_id, file_path, summary, topics, word_count) 
-        VALUES (?, ?, ?, ?, ?)
-    """, (user_id, file_path, analysis_result["summary"], analysis_result["topics"], analysis_result["word_count"]))
-
+    user_id = user["id"]
+    cursor.execute("INSERT INTO credit_requests (user_id) VALUES (?)", (user_id,))
     conn.commit()
     conn.close()
 
-    return jsonify({
-        "message": "File uploaded successfully!",
-        "file_path": file_path,
-        "analysis": analysis_result
-    }), 200
-
-@app.route("/admin/users", methods=["GET"])
-def get_users():
-    conn = get_db()
-    cursor = conn.cursor()
-    cursor.execute("SELECT id, username, credits FROM users WHERE role != 'admin'")
-    users = [{"id": row["id"], "username": row["username"], "credits": row["credits"]} for row in cursor.fetchall()]
-    return jsonify(users)
-
-@app.route("/admin/credit-requests", methods=["GET"])
-def get_credit_requests():
-    conn = get_db()
-    cursor = conn.cursor()
-    cursor.execute("SELECT credit_requests.id, users.username, credit_requests.status FROM credit_requests JOIN users ON credit_requests.user_id = users.id WHERE credit_requests.status = 'pending'")
-    requests = [{"id": row["id"], "username": row["username"], "status": row["status"]} for row in cursor.fetchall()]
-    return jsonify(requests)
+    return jsonify({"message": "Credit request submitted"}), 200
 
 @app.route("/admin/approve-credit", methods=["POST"])
 def approve_credit():
@@ -250,7 +220,7 @@ def document_stats():
     cursor.execute("SELECT topics, COUNT(*) as count FROM documents GROUP BY topics ORDER BY count DESC LIMIT 5")
     stats = [{"topic": row["topics"], "count": row["count"]} for row in cursor.fetchall()]
     return jsonify(stats)
-    
+
 if __name__ == "__main__":
     create_tables()
     app.run(host="0.0.0.0", port=8080, debug=True)
