@@ -14,4 +14,4 @@ To log in as an Admin, use the following credentials:
 
 Admin Username: admin
 Admin Password: admin
-![image](https://github.com/user-attachments/assets/6fa397d6-7782-4b25-9f12-38217ea72b04)
+
